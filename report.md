@@ -181,6 +181,8 @@ Test cases: test_detect.py
 
 ### Patch
 
+To see code added for the feature: `git diff 314ccbb 237da3d`.
+
 To see code added for the `track` command: `git diff 314ccbb 5760419`.
 
 ## Test results
