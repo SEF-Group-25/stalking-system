@@ -189,13 +189,13 @@ To see code added for the DM feature, click here https://github.com/SEF-Group-25
 ### Code for `word_tracker.py` (Zubair)
 `read_json(self)` and `write_json(self, data: dict)`: These two files are simple util functions used to read and write to the json file created by the track command. **Links:** https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b7951e25228b5e4dc/bot/exts/utils/word_tracker.py#L20
 
-https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b7951e25228b5e4dc/bot/exts/utils/word_tracker.py#L30C20-L30C36.
+https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b7951e25228b5e4dc/bot/exts/utils/word_tracker.py#L30C20-L30C36
 
-`track_word(self, ctx: Context, word: str)`: Stores the tracking information for a word in the current channel. **Link:** https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b7951e25228b5e4dc/bot/exts/utils/word_tracker.py#L39C25-L39C55.
+`track_word(self, ctx: Context, word: str)`: Stores the tracking information for a word in the current channel. **Link:** https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b7951e25228b5e4dc/bot/exts/utils/word_tracker.py#L39C25-L39C55
 
-`show_tracked(self, ctx: Context)`: Shows all the tracked words by all users in the current channel. **Link:** https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b7951e25228b5e4dc/bot/exts/utils/word_tracker.py#L56.
+`show_tracked(self, ctx: Context)`: Shows all the tracked words by all users in the current channel. **Link:** https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b7951e25228b5e4dc/bot/exts/utils/word_tracker.py#L56
 
-` untrack_word(self, ctx: Context, word: str)`: Stops tracking a specific word in the current channel. **Link:** https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b7951e25228b5e4dc/bot/exts/utils/word_tracker.py#L73C14-L73C58.
+` untrack_word(self, ctx: Context, word: str)`: Stops tracking a specific word in the current channel. **Link:** https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b7951e25228b5e4dc/bot/exts/utils/word_tracker.py#L73C14-L73C58
 
 Test cases for all functions can be found here: https://github.com/SEF-Group-25/stalking-system/blob/bddf60c09ce32a5193f1b8a52d794876cb6e2c37/tests/bot/exts/utils/test_word_tracker.py#L10
 
