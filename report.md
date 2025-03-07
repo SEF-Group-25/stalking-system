@@ -199,6 +199,42 @@ https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b795
 
 Test cases for all functions can be found here: https://github.com/SEF-Group-25/stalking-system/blob/bddf60c09ce32a5193f1b8a52d794876cb6e2c37/tests/bot/exts/utils/test_word_tracker.py#L10
 
+### Code for `spam_check.py` (Shangxuan Tang)
+The RateLimiter component ensures that the system does not send excessive notifications due to spam or frequent message triggers. It maintains a record of user-triggered events and enforces a threshold-based limit within a defined time window.
+
+Key Methods:
+
+[is_malicious](https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b7951e25228b5e4dc/bot/utils/spam_check.py#L18)(user, timestamp) -> bool
+
+- Checks if a user has triggered too many notifications in a short period.
+- Compares the user's message timestamps against a predefined threshold and time window.
+- Returns True if the user exceeds the limit, indicating potential spamming behavior.
+
+[record_trigger](https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b7951e25228b5e4dc/bot/utils/spam_check.py#L37)(user, timestamp)
+
+- Records the time at which a user triggers a notification event.
+- Maintains a history of timestamps for each user to track their message frequency.
+- Ensures old timestamps are removed after the defined time window to maintain efficiency.
+
+Tests for RateLimiter:
+
+[test_below_threshold](https://github.com/SEF-Group-25/stalking-system/blob/bddf60c09ce32a5193f1b8a52d794876cb6e2c37/tests/bot/exts/stalking_system/test_spam_check.py#L11)()
+
+A user sends two messages within the time window, staying below the defined threshold (3 messages). The test asserts that the user is not flagged as malicious.
+
+[test_exceed_threshold](https://github.com/SEF-Group-25/stalking-system/blob/bddf60c09ce32a5193f1b8a52d794876cb6e2c37/tests/bot/exts/stalking_system/test_spam_check.py#L21)()
+
+A user sends three messages within a short time, exceeding the threshold. The test asserts that the user is flagged as malicious.
+
+[test_old_messages_are_ignored](https://github.com/SEF-Group-25/stalking-system/blob/bddf60c09ce32a5193f1b8a52d794876cb6e2c37/tests/bot/exts/stalking_system/test_spam_check.py#L32)()
+
+The user has older messages outside the time window, which should not contribute to the rate limit check.
+A new message is sent within the window, but the user remains below the threshold. The test asserts that the user is not flagged as malicious.
+
+[test_independent_users](https://github.com/SEF-Group-25/stalking-system/blob/bddf60c09ce32a5193f1b8a52d794876cb6e2c37/tests/bot/exts/stalking_system/test_spam_check.py#L43)()
+
+Two users are tested separately. User 1 exceeds the threshold and is flagged as malicious. User 2 has no recorded messages, so they should not be flagged. This ensures that each user is tracked independently.
+
 ## Test results
 Before:
 ============================================================= short test summary info =============================================================
