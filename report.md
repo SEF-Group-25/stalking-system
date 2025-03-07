@@ -166,7 +166,7 @@ Title: Add functionality to send DM
 Description:
 Function that sends a DM with a message
 
-Test cases: test_detect.py
+Test cases: test_detect.py, https://github.com/SEF-Group-25/stalking-system/blob/cf52e4ede63794bd2fb63e5b7951e25228b5e4dc/tests/bot/exts/stalking_system/test_detect.py#L10
 
 ### Requirement: Add message detection #5 (Anton)
 Title: Word stalker
