@@ -244,9 +244,11 @@ With the Discord bot architecture in place, the Stalking System was integrated a
 WordTracker: Managing Tracked Words
 - Provides commands to allow users to /track, /untrack, and /tracked words.
 - Uses @commands.command() to register tracking-related functionalities.
+
 Detect: Monitoring Messages and Sending Alerts
 - Listens for messages using @commands.Cog.listener().
 - Checks if a message contains a tracked word and sends a DM to the tracking user.
+
 RateLimiter: Preventing Spam and Abuse
 - Stores timestamps of tracked-word notifications for each user.
 - Enforces a threshold-based rate-limiting mechanism to prevent excessive notifications.
@@ -281,7 +283,3 @@ There were two parts of this whole experience that was interesting. First workin
 
 ### How did you grow as a team, using the Essence standard to evaluate yourself?
 According to the Essence standard, we meet all the requirements of the Performing state. However, there's some room for improvement. For instance, one requirement states 'The team continuously adapts to changing context', we found ourselves sometimes slow to adapt when facing implementation difficulties. This could have been improved with slightly better team communication. Despite these minor setbacks, we're generally satisfied with how our team functions and collaborates.
-
-Optional (point 6): How would you put your work in context with best software engineering practice?
-
-Optional (point 7): Is there something special you want to mention here?
