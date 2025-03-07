@@ -183,7 +183,7 @@ Test cases: test_detect.py
 
 To see code added for the feature: `git diff 314ccbb 237da3d`.
 
-To see code added for the DM feature, click here https://github.com/SEF-Group-25/stalking-system/pull/18/files
+To see code added for the DM feature, click here https://github.com/SEF-Group-25/stalking-system/pull/18/files. This function sends a discord DM to a specified user, with a specified message. It contains error handling and testing has 100% coverage.
 
 ## Test results
 Before:
