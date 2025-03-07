@@ -352,7 +352,7 @@ There were two parts of this whole experience that was interesting. First workin
 According to the Essence standard, we meet all the requirements of the Performing state. However, there's some room for improvement. For instance, one requirement states 'The team continuously adapts to changing context', we found ourselves sometimes slow to adapt when facing implementation difficulties. This could have been improved with slightly better team communication. Despite these minor setbacks, we're generally satisfied with how our team functions and collaborates.
 
 ## Software Practices
-Our work is well tested, relatively independent of other functions of the bot. This allows modifications to be done easier in the future as less conflicts could arise. Although this also makes the code a bit less consistent with the existing codebase, which makes it a bit less organized.
+Our work is well tested, relatively independent of other functions of the bot. This allows modifications to be done easier in the future as less conflicts could arise. Although this also makes the code a bit less consistent with the existing codebase, which makes it a bit less organized. We used issues to track features, collaborated when necessary, seperate branches, and full coverage testing.
 
 ### Opportunity
 Our work allows users to better monitor their interests as they will be notified when decided topics are discussed.
