@@ -176,6 +176,9 @@ Function to scan for words specified in #4.
 Also responsible for calling spam check and send DM functions if match is found.
 
 Test cases: test_detect.py
+Link to the line start of my test class for the detect class: https://github.com/SEF-Group-25/stalking-system/blob/bddf60c09ce32a5193f1b8a52d794876cb6e2c37/tests/bot/exts/stalking_system/test_detect.py#L54
+
+There are 3 test cases, within the class. One that makes sure it ignores bot messages, one that makes sure nothing happens if the channel is not on the list of tracked channels and one that tests if spam get blocked correctly if is_malicious() returns true.
 
 ## Code changes
 
@@ -185,18 +188,25 @@ To see code added for the feature: `git diff 314ccbb 237da3d`.
 
 To see code added for the DM feature, click here https://github.com/SEF-Group-25/stalking-system/pull/18/files
 
+To see code added for Detect() class and the on_message event listener, click here: https://github.com/SEF-Group-25/stalking-system/blob/ab9e58663371a2840664343a17be69c66e926503/bot/exts/stalking_system/detect.py#L19
+
+The main function "on_message" for every message reads in a json file that is tracking all words that are currently being tracked. Checks if the message itself is in a tracked channel and isnt sent by a bot. And then checks if the message contains any key words. If yes it then calls the rate limiters "is_malicious()" method to check if it should start sending DMs. If it does then it loops through everyone who was tracking that keyword and sends them a DM by calling the send_DM() method. It sends a seperate DM to every person for every relevant keyword that was mentioned in the message.
+
 ## Test results
 Before:
-============================================================= short test summary info =============================================================
+========================================= short test summary info =====================================================
 FAILED tests/bot/exts/stalking_system/test_detect.py::TestDetect::test_spam_blocked - NameError: name 'Detect' is not defined
+
 FAILED tests/bot/exts/stalking_system/test_detect.py::TestDetect::test_ignore_bot_message - NameError: name 'Detect' is not defined
+
 FAILED tests/bot/exts/stalking_system/test_detect.py::TestDetect::test_no_tracked_channel - NameError: name 'Detect' is not defined
-============================================= 3 failed, 431 passed, 1 skipped, 733 warnings in 17.33s =============================================
+
+============================ 3 failed, 431 passed, 1 skipped, 733 warnings in 17.33s ====================================
 Branch be found here https://github.com/SEF-Group-25/stalking-system/tree/origin/test/2-detect-tests
 
 After:
 
-=================================================== 451 passed, 1 skipped, 742 warnings in 8.90s ==================================================
+=============================== 451 passed, 1 skipped, 742 warnings in 8.90s ================================
 Branch https://github.com/SEF-Group-25/stalking-system
 
 
