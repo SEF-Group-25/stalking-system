@@ -183,8 +183,6 @@ Test cases: test_detect.py
 
 To see code added for the feature: `git diff 314ccbb 237da3d`.
 
-To see code added for the `track` command: `git diff 314ccbb 5760419`.
-
 To see code added for the DM feature, click here https://github.com/SEF-Group-25/stalking-system/pull/18/files
 
 ## Test results
