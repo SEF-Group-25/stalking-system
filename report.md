@@ -200,9 +200,59 @@ Branch https://github.com/SEF-Group-25/stalking-system
 
 ## UML class diagram and its description
 
+![UML](./UML.jpg)
+
 ### Architectural overview
 
-### relation to design patterns
+#### System Purpose and Objectives
+The Stalking System is a newly introduced feature designed to allow users to track specific words in Discord messages and receive notifications via direct messages (DMs) when these words appear.
+
+However, to prevent abuse, the system also implements a rate-limiting mechanism that ensures users do not receive excessive notifications due to spam or malicious behavior. By balancing real-time monitoring with controlled notifications, the system provides a user-friendly and efficient experience without overwhelming users with unnecessary alerts.
+
+The main objectives of this feature include:
+
+- Enabling users to track, untrack, and review monitored words.
+- Automatically detecting messages that contain tracked words and notifying the respective users.
+- Implementing rate limiting to prevent excessive notifications from spammy or repeated triggers.
+- Seamlessly integrating into the existing Discord bot architecture while maintaining modularity and scalability.
+
+#### System Architecture and Feature Integration
+To integrate the Stalking System efficiently into the Discord bot, the architecture is built around key components: Commands.Bot and Commands.Cog.
+
+Commands.Bot serves as the central manager for the Discord bot. It is responsible for:
+
+- Managing commands and cogs by registering them dynamically.
+- Processing user inputs and invoking the corresponding command functions.
+- Handling event listeners that allow the bot to react to messages and other interactions.
+- The bot acts as the entry point of the system, ensuring that features can be modularized while maintaining a single source of execution and management.
+
+To maintain a clean and scalable architecture, Discord bot functionalities are implemented using Cogs. A Cog is a class that groups related commands and event listeners together, making it easier to manage and extend features.
+
+- Each Cog registers its commands and event listeners with the bot.
+- The bot automatically detects and loads Cogs, ensuring modular functionality.
+- Cogs can be independently developed and maintained, avoiding monolithic code structures.
+
+By using Cogs, the system organizes different features into separate modules, making it easier to add new functionalities without modifying the bot’s core logic.
+
+In addition, decorators play a crucial role in registering commands and event listeners dynamically. The Discord bot framework provides decorators such as @commands.command() and @commands.Cog.listener() to streamline functionality.
+
+- @commands.command() marks a function as a command that can be invoked by users.
+- @commands.Cog.listener() designates a function as an event listener, allowing it to react to incoming messages and other Discord events.
+
+With the Discord bot architecture in place, the Stalking System was integrated as a new feature using the Cog structure and decorators. The system comprises three main components:
+
+WordTracker: Managing Tracked Words
+- Provides commands to allow users to /track, /untrack, and /tracked words.
+- Uses @commands.command() to register tracking-related functionalities.
+Detect: Monitoring Messages and Sending Alerts
+- Listens for messages using @commands.Cog.listener().
+- Checks if a message contains a tracked word and sends a DM to the tracking user.
+RateLimiter: Preventing Spam and Abuse
+- Stores timestamps of tracked-word notifications for each user.
+- Enforces a threshold-based rate-limiting mechanism to prevent excessive notifications.
+- Used within the Detect component to validate if a notification should be sent.
+
+### Relation to design patterns
 
 The newly added command follows three key design patterns: Command Pattern, Observer Pattern, and Decorator Pattern. These patterns contribute to a modular, maintainable, and scalable architecture for the bot's functionality.
 
@@ -217,7 +267,7 @@ The command system uses the Decorator Pattern to define and register both comman
 
 ## Overall experience (Tang)
 
-From this project, I learned how to work as a group to solve code issues. We discussed the direction of solving the problem and developed a plan in detail. This is a valuable practical experience.
+From this project, I learned how to work as a group to solve code issues. We discussed the direction of solving the problem and developed a plan in detail. This is a valuable practical experience. When evaluting the source code of Discord Bot, I learned lots of technologies of system design. Although there isn't much documentation about the code, I can easily find the code location of the feature using original bot command.
 
 ## Overall experience (Zubair)
 From this project, I learned how to go about understanding large codebases to be able to contribute in a meaningful way. Working with an established project taught me how to integrate new features while maintaining existing code standards and patterns.
