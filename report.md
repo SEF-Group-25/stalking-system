@@ -350,3 +350,19 @@ There were two parts of this whole experience that was interesting. First workin
 
 ### How did you grow as a team, using the Essence standard to evaluate yourself?
 According to the Essence standard, we meet all the requirements of the Performing state. However, there's some room for improvement. For instance, one requirement states 'The team continuously adapts to changing context', we found ourselves sometimes slow to adapt when facing implementation difficulties. This could have been improved with slightly better team communication. Despite these minor setbacks, we're generally satisfied with how our team functions and collaborates.
+
+## Software Practices
+Our work is well tested, relatively independent of other functions of the bot. This allows modifications to be done easier in the future as less conflicts could arise. Although this also makes the code a bit less consistent with the existing codebase, which makes it a bit less organized.
+
+### Opportunity
+Our work allows users to better monitor their interests as they will be notified when decided topics are discussed.
+
+### Stakeholders 
+The people most affected are users of discord servers with the bot. Adding notifications would allow users to spend less time on browsing discussions that do no entertain them.
+Requirements – I think we defined and meet our requirements reasonably well. We have a functional feature with spam filters to mitigate malicious use.
+
+### Software System
+I think the quality, maintainability, and effectiveness are all adequate for the its purpose. We used accepted practices in the development, like high test coverage and mocking API calls. Maintainability should be quite good as the system does not rely on overly many or complex other systems. As for effectiveness, it does what it’s supposed to do and we haven’t gotten it to malfunction.
+
+### Work
+We first discussed what project to do. After settling on that we each looked through the issues and agreed on one we all felt was reasonable. After that, we forked. the repo and created issues for each part required that we could identify. We added testing for our functions to ensure quality and then integrated them with each other. All throughout the project, we made sure to link commits to issues, worked on dedicated branches and asked for help if necessary. A considerable amount of time was spent on discussing our approaches.
